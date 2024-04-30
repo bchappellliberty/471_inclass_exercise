@@ -89,15 +89,17 @@ public:
 
   void print() const { // Print the contents of the BST
     if (root == NULL) cout << "The BST is empty.\n";
-    else printhelp(root, 0);
+    else 
+    {
+      printhelp(root, 0);
+      printPreOrder();
+      printPostOrder();
+    }
   }
-
   void printPreOrder() const { // Print the contents of the BST in preorder format
     if (root == NULL) cout << "The BST is empty.\n";
     else printhelpPreorder(root, 0);
   }
-
-};
 
 // Visit -- prints out root
 template <typename Key, typename E>
@@ -203,6 +205,7 @@ printhelp(BSTNode<Key, E>* root, int level) const {
   printhelp(root->right(), level+1);  // Do right subtree
 }
 
+
 // Print out a BST in preorder format
 template <typename Key, typename E>
 void BST<Key, E>::
@@ -212,3 +215,9 @@ printhelpPreorder(BSTNode<Key, E>* root, int level) const {
   printhelp(root->left(), level+1);   // Do left subtree
   printhelp(root->right(), level+1);  // Do right subtree
 }
+
+void printPostOrder()
+{
+  //Postorder stuff
+}
+
